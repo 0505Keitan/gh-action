@@ -12,6 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: push webhook
+    - name: push discord webhook
       run: |
         curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"username":"TEST","content":"PUSH!"}' ${{ secrets.WEBHOOK_URL }}
