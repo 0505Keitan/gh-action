@@ -1,0 +1,17 @@
+name: DiscordWebhook
+
+on:
+  push:
+#   schedule:
+#   - cron: 0 0 * * *
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: push webhook
+      run: |
+        curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"username":"TEST","content":"PUSH!"}' ${{ secrets.WEBHOOK_URL }}
